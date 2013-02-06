@@ -7,3 +7,6 @@
 [submodule "chef-repo/cookbooks/chef_handler"]
 	path = chef-repo/cookbooks/chef_handler
 	url = https://github.com/opscode-cookbooks/chef_handler.git
+[submodule "chef-repo/cookbooks/tmux"]
+	path = chef-repo/cookbooks/tmux
+	url = https://github.com/opscode-cookbooks/tmux.git
