@@ -4,3 +4,6 @@
 [submodule "chef-repo/cookbooks/windows"]
 	path = chef-repo/cookbooks/windows
 	url = https://github.com/opscode-cookbooks/windows.git
+[submodule "chef-repo/cookbooks/chef_handler"]
+	path = chef-repo/cookbooks/chef_handler
+	url = https://github.com/opscode-cookbooks/chef_handler.git
