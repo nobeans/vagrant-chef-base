@@ -1,4 +1,0 @@
-{
-	"run_list": [ "recipe[sample_solo]" ]
-}
-
