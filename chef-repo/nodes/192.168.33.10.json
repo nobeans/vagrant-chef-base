@@ -1,1 +1,6 @@
-{    "run_list":[        "recipe[sample_solo::default]",        "recipe[sample_solo::java]"    ]}
+{
+    "run_list":[
+        "recipe[sample_solo::default]",
+        "role[java]"
+    ]
+}
