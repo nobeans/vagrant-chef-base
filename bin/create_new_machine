@@ -1,0 +1,11 @@
+#!/bin/bash
+
+vagrant init centos
+vagrant up
+
+BASE_DIR=`dirname $0`/..
+cd $BASE_DIR/chef-repo
+
+knife solo prepare vagrant@192.168.33.10
+knife solo cook vagrant@192.168.33.10
+
