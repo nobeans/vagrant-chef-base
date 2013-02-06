@@ -1,6 +1,12 @@
 {
+    "java": {
+        "oracle": {
+            "accept_oracle_download_terms": true
+        }
+    },
     "run_list":[
         "recipe[sample_solo::default]",
-        "role[java]"
+        "recipe[java::oracle_latest]",
+        "recipe[tmux]"
     ]
 }
