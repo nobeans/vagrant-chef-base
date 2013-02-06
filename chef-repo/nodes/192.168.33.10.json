@@ -6,7 +6,6 @@
     },
     "run_list":[
         "recipe[sample_solo::default]",
-        "recipe[java::oracle_latest]",
-        "recipe[tmux]"
+        "recipe[java::oracle_latest]"
     ]
 }
