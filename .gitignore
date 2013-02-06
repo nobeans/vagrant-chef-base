@@ -1,2 +1,9 @@
 .vagrant
 .chef
+.bundle
+.cache
+.kitchen
+bin
+#*#
+*~
+.#*#
