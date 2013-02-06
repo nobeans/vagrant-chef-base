@@ -1,3 +1,6 @@
 [submodule "chef-repo/cookbooks/java"]
 	path = chef-repo/cookbooks/java
 	url = https://github.com/opscode-cookbooks/java.git
+[submodule "chef-repo/cookbooks/windows"]
+	path = chef-repo/cookbooks/windows
+	url = https://github.com/opscode-cookbooks/windows.git
