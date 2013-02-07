@@ -1,7 +1,14 @@
 #!/bin/bash
 
 NODE=vagrant@192.168.33.10
-CHEF_REPO_DIR=`dirname $0`/../chef-solo
+BASE_DIR=`dirname $0`/..
+SYNC_CMD=$BASE_DIR/bin/sync_repo
+CHEF_REPO_DIR=$BASE_DIR/chef-solo
+
+#
+# Sync
+#
+$SYNC_CMD
 
 #
 # Vagrant

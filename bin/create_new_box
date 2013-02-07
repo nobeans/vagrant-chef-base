@@ -1,9 +1,16 @@
 #!/bin/bash
 
 NODE=vagrant@192.168.33.10
+BASE_DIR=`dirname $0`/..
+SYNC_CMD=$BASE_DIR/bin/sync_repo
+CHEF_REPO_DIR=$BASE_DIR//chef-solo
 TEMP_PROXY_SH_FIE=/tmp/vagrant-proxy.sh
 TEMP_PROXY_SUDOERS_FIE=/tmp/vagrant-sudoers
-CHEF_REPO_DIR=`dirname $0`/../chef-repo
+
+#
+# Sync
+#
+$SYNC_CMD
 
 #
 # Create new os image by Vagrant
