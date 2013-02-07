@@ -3,7 +3,7 @@
 NODE=vagrant@192.168.33.10
 TEMP_PROXY_SH_FIE=/tmp/vagrant-proxy.sh
 TEMP_PROXY_SUDOERS_FIE=/tmp/vagrant-sudoers
-BASE_DIR=`dirname $0`/..
+CHEF_REPO_DIR=`dirname $0`/../chef-repo
 
 #
 # Create new os image by Vagrant
@@ -42,7 +42,7 @@ ssh $NODE rm $TEMP_PROXY_SUDOERS_FIE
 #
 # Chef (chef-solo / knife-solo)
 #
-cd $BASE_DIR/chef-repo
+cd $CHEF_REPO_DIR
 knife solo prepare $NODE
 knife solo cook $NODE
 
