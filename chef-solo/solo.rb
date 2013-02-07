@@ -1,10 +1,8 @@
-shared_repo = "~/Developer/workspace/chef-repo"
-
 file_cache_path           "/tmp/chef-solo"
 data_bag_path             "/tmp/chef-solo/data_bags"
 encrypted_data_bag_secret "/tmp/chef-solo/data_bag_key"
-role_path                 ["#{shared_repo}/roles", "/tmp/chef-solo/roles"]
-cookbook_path             ["#{shared_repo}/cookbooks", "/tmp/chef-solo/site-cookbooks", "/tmp/chef-solo/cookbooks"]
+role_path                 ["/tmp/chef-solo/site-roles", "/tmp/chef-solo/roles"]
+cookbook_path             ["/tmp/chef-solo/site-cookbooks", "/tmp/chef-solo/cookbooks"]
 
 # Logging
 log_level :debug

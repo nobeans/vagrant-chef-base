@@ -7,3 +7,4 @@
 *~
 .#*#
 chef-solo/cookbooks/*
+chef-solo/roles/*

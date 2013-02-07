@@ -7,6 +7,8 @@ CHEF_SOLO_DIR=`dirname $0`/../chef-solo
 # sync
 #
 rsync -a --delete $SHARED_REPO_DIR/cookbooks/ $CHEF_SOLO_DIR/cookbooks
+rsync -a --delete $SHARED_REPO_DIR/roles/ $CHEF_SOLO_DIR/roles
 
 # for keep empty dir
 touch $CHEF_SOLO_DIR/cookbooks/.gitkeep
+touch $CHEF_SOLO_DIR/roles/.gitkeep
