@@ -1,11 +1,18 @@
 {
     "java": {
         "oracle": {
+            "java_home": "/usr/local/java/default",
+            "url": "http://download.oracle.com/otn-pub/java/jdk/7u13-b20/jdk-7u13-linux-x64.tar.gz",
+            "checksum": "5045457407e120207ebd5c5b93ec6ee6ee61d76747ebf3ce467aad51c9c3cb5d",
             "accept_oracle_download_terms": true
         }
     },
-    "run_list":[
+    "run_list": [
         "recipe[sample_solo::default]",
-        "recipe[java::oracle_latest]"
+        "recipe[java::oracle_latest]",
+        "recipe[unzip]",
+        "recipe[tree]",
+        "recipe[git]"
+        //"recipe[gvm]"
     ]
 }
