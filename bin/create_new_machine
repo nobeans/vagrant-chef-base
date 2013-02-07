@@ -1,11 +1,48 @@
 #!/bin/bash
 
+NODE=vagrant@192.168.33.10
+TEMP_PROXY_SH_FIE=/tmp/vagrant-proxy.sh
+TEMP_PROXY_SUDOERS_FIE=/tmp/vagrant-sudoers
+BASE_DIR=`dirname $0`/..
+
+#
+# Create new os image by Vagrant
+#
 vagrant init centos
 vagrant up
 
-BASE_DIR=`dirname $0`/..
-cd $BASE_DIR/chef-repo
+#
+# Proxy setting
+#
 
-knife solo prepare vagrant@192.168.33.10
-knife solo cook vagrant@192.168.33.10
+# /etc/profile.d/proxy.sh
+if [ -n "$https_proxy" ]; then
+    cat > $TEMP_PROXY_SH_FIE <<EOS_1
+export http_proxy=http:$http_proxy
+export HTTP_PROXY=$http_proxy
+export https_proxy=$http_proxy
+export ftp_proxy=$http_proxy
+export GIT_PROXY_COMMAND=/Users/ynak/bin/git-proxy.sh
+EOS_1
+    scp $TEMP_PROXY_SH_FIE $NODE:$TEMP_PROXY_SH_FIE
+    ssh $NODE sudo mv $TEMP_PROXY_SH_FIE /etc/profile.d/
+    rm $TEMP_PROXY_SH_FIE
+fi
+
+# /etc/sudoers
+cat > $TEMP_PROXY_SUDOERS_FIE <<EOS_2
+
+# For proxy
+Defaults    env_keep += "http_proxy https_proxy"
+EOS_2
+scp $TEMP_PROXY_SUDOERS_FIE $NODE:$TEMP_PROXY_SUDOERS_FIE
+ssh $NODE "sudo sh -c 'cat $TEMP_PROXY_SUDOERS_FIE >> /etc/sudoers'"
+ssh $NODE rm $TEMP_PROXY_SUDOERS_FIE
+
+#
+# Chef (chef-solo / knife-solo)
+#
+cd $BASE_DIR/chef-repo
+knife solo prepare $NODE
+knife solo cook $NODE
 
