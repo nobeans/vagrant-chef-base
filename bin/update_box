@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NODE=vagrant@192.168.33.10
+CHEF_REPO_DIR=`dirname $0`/../chef-repo
+
+#
+# Vagrant
+#
+vagrant up
+
+#
+# Chef (chef-solo / knife-solo)
+#
+cd $CHEF_REPO_DIR
+knife solo cook $NODE
+
