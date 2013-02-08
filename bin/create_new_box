@@ -23,11 +23,11 @@ vagrant up
 #
 
 # /etc/profile.d/proxy.sh
-if [ -n "$https_proxy" ]; then
-    cat > $TEMP_PROXY_SH_FIE <<EOS_1
-export http_proxy=$http_proxy
-export https_proxy=$http_proxy
-EOS_1
+if [ -n "$http_proxy" ]; then
+    echo "export http_proxy=$http_proxy" > $TEMP_PROXY_SH_FIE
+    if [ -n "$https_proxy" ]; then
+        echo "export https_proxy=$https_proxy" >> $TEMP_PROXY_SH_FIE
+    fi
     scp $TEMP_PROXY_SH_FIE $NODE:$TEMP_PROXY_SH_FIE
     ssh $NODE sudo mv $TEMP_PROXY_SH_FIE /etc/profile.d/proxy.sh
     rm $TEMP_PROXY_SH_FIE
