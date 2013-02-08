@@ -26,10 +26,7 @@ vagrant up
 if [ -n "$https_proxy" ]; then
     cat > $TEMP_PROXY_SH_FIE <<EOS_1
 export http_proxy=$http_proxy
-export HTTP_PROXY=$http_proxy
 export https_proxy=$http_proxy
-export ftp_proxy=$http_proxy
-export GIT_PROXY_COMMAND=/Users/ynak/bin/git-proxy.sh
 EOS_1
     scp $TEMP_PROXY_SH_FIE $NODE:$TEMP_PROXY_SH_FIE
     ssh $NODE sudo mv $TEMP_PROXY_SH_FIE /etc/profile.d/proxy.sh
