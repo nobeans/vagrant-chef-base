@@ -25,7 +25,7 @@ vagrant up
 # /etc/profile.d/proxy.sh
 if [ -n "$https_proxy" ]; then
     cat > $TEMP_PROXY_SH_FIE <<EOS_1
-export http_proxy=http:$http_proxy
+export http_proxy=$http_proxy
 export HTTP_PROXY=$http_proxy
 export https_proxy=$http_proxy
 export ftp_proxy=$http_proxy
