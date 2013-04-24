@@ -8,7 +8,6 @@
         }
     },
     "run_list": [
-        "recipe[sample_solo::default]",
         "recipe[unzip]",
         "recipe[tree]",
         "recipe[git]",
