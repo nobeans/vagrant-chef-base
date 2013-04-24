@@ -8,7 +8,6 @@
         }
     },
     "gvm": {
-        "java_home": "/usr/local/java/default",
         "groovy": { "version": "" }, // latest
         "grails": { "version": "" }, // latest
         "gradle": { "version": "" }  // latest
