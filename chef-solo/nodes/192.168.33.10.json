@@ -7,11 +7,17 @@
             "accept_oracle_download_terms": true
         }
     },
+    "gvm": {
+        "java_home": "/usr/local/java/default",
+        "groovy": { "version": "" }, // latest
+        "grails": { "version": "" }, // latest
+        "gradle": { "version": "" }  // latest
+    },
     "run_list": [
         "recipe[unzip]",
         "recipe[tree]",
         "recipe[git]",
-        "recipe[java::oracle_latest]"
-        //"recipe[gvm]"
+        "recipe[java::oracle_latest]",
+        "recipe[gvm]"
     ]
 }
