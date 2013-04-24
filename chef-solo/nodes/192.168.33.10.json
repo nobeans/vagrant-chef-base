@@ -13,6 +13,7 @@
         "gradle": { "version": "" }  // latest
     },
     "run_list": [
+        "recipe[vim]",
         "recipe[unzip]",
         "recipe[tree]",
         "recipe[git]",
