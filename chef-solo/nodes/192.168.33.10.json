@@ -18,6 +18,7 @@
         "recipe[tree]",
         "recipe[git]",
         "recipe[java::oracle_latest]",
+        "recipe[dotfiles]",
         "recipe[gvm]"
     ]
 }
